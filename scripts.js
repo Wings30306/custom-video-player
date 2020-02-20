@@ -50,7 +50,7 @@ function toggleFullScreen() {
     fullScreen = !fullScreen
     console.log({fullScreen})
     fullScreen ? width = "100vw" : width = "50vw";
-    fullScreen ? height = "100vh" : height = "50vh"
+    fullScreen ? height = "100vh" : height = "auto"
     player.style.width = width;
     player.style.height = height
 }
@@ -75,6 +75,7 @@ ranges.forEach(range => range.addEventListener("touchmove", handleRangeUpdate))
 let mousedown = false;
 progress.addEventListener("click", scrub)
 progress.addEventListener("mousemove", (e) => mousedown && scrub(e))
+progress.addEventListener("touchmove", scrub)
 progress.addEventListener("mousedown", () => mousedown = true)
 progress.addEventListener("mouseup", () => mousedown = false)
 
